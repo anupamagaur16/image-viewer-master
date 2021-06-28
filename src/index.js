@@ -3,4 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Controller from "./screens/controller/Controller";
 
-ReactDOM.render(<Controller />, document.getElementById("root"));
+ReactDOM.render(
+    <Controller />, 
+    document.getElementById("root")
+);

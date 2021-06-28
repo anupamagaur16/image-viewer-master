@@ -16,6 +16,7 @@ export default class Controller extends Component {
   onLoginChange = (newStatus) => {
     this.setState({ isLoggedIn: newStatus }, () => {});
   };
+  
   render() {
     return (
       <Router>

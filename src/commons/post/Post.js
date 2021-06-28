@@ -75,7 +75,6 @@ class Post extends Component {
   }
 
   async componentDidMount() {
-    // console.log("component did MOUNT");
     try {
       const data = await this.props.cb(this.props.post);
       setTimeout(() => this.setState({ postEXIF: data }), 1000);
@@ -85,12 +84,9 @@ class Post extends Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    // console.log("component did UPDATE");
-    // console.log(this.props.postEXIF);
     if (prevProps.post !== this.props.post) {
       try {
         const data = await this.props.cb(this.props.post);
-        //console.log("DATA in did update ", data);
         setTimeout(() => this.setState({ postEXIF: data }), 1000);
       } catch (error) {
         console.log("ERROR", error);
@@ -159,15 +155,11 @@ class Post extends Component {
   };
 
   render() {
-    // console.log("is from <<<<< POST");
-    // console.log(this.props.postDetails);
     let { postEXIF: postDetails, commentsList } = this.state;
     let { classes } = this.props;
     if (postDetails === null) {
       return <div />;
     }
-    // console.log("is from >>>>>> POST");
-    // console.log(postDetails);
     return (
       <div key={"imagePost" + this.props.containerId}>
         {postDetails.media_type?.toLowerCase() === "image" ? (
@@ -263,4 +255,5 @@ class Post extends Component {
     );
   }
 }
+
 export default withStyles(styles)(Post);
